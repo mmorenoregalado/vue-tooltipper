@@ -6,6 +6,11 @@
     "vue tooltips",
     "vue 3 tooltips"
   ],
+  "homepage": "https://github.com/mmorenoregalado/vue-tooltipper",
+  "bugs": {
+    "url": "https://github.com/mmorenoregalado/vue-tooltipper/issues"
+  },
+  "license": "MIT",
   "type": "module",
   "files": [
     "dist"
