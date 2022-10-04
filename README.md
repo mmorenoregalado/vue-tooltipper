@@ -1,10 +1,7 @@
 # vue-tooltipper
-A Vue3 plugin that makes it a easy to create tooltips for your projects. This plugin is simply a wrapper for the 
+
+A Vue3 plugin that makes it a easy to create tooltips for your projects. This plugin is simply a wrapper for the
 [Tippy.js](https://atomiks.github.io/tippyjs/) library.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
