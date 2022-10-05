@@ -28,7 +28,9 @@ the tooltip is disabled, so to activate it you only need to change that option t
 createApp(App).use(createTooltipPlugin({arrow: true})).mount('#app')
 ```
 
-The same is for any other option. Here you have a link to the Tippy.js library with the supported options which you can
+The same is for any other option. Here you have a link to the [Tippy.js](https://atomiks.github.io/tippyjs/) library
+with the supported options which
+you can
 add to your plugin configuration.
 
 With this you will be able to place the ToolTip component anywhere your project needs it, without the need to
