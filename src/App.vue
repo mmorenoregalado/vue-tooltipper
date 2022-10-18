@@ -13,7 +13,9 @@ const tooltipText = ref("Hello world");
     <ToolTip :text="tooltipText" :options="{ placement: 'bottom' }"
   /></span>
   <br />
-  <span>And Over Me <ToolTip :text="tooltipText" /></span>
+  <br />
+  <span v-tooltip="tooltipText">Tooltip with Vue Directive</span>
+  <br />
   <br />
   <button @click="$hideAllTooltips()">Hide All</button>
 </template>

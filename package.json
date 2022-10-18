@@ -4,7 +4,9 @@
   "keywords": [
     "vue plugin",
     "vue tooltips",
-    "vue 3 tooltips"
+    "vue 3 tooltips",
+    "vue 3 directives",
+    "Tippy.js"
   ],
   "homepage": "https://github.com/mmorenoregalado/vue-tooltipper",
   "bugs": {

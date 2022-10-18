@@ -6,7 +6,7 @@
 import tippy from "tippy.js";
 import "tippy.js/dist/tippy.css";
 import { onMounted, onUpdated, ref, onUnmounted, inject } from "vue";
-import {tooltipOptionsInject} from "./";
+import { tooltipOptionsInject } from "./";
 
 const props = defineProps({
   text: { type: String, required: true },
@@ -23,7 +23,7 @@ let tippyInstance = null;
 
 function initTippy() {
   if (tippyInstance) tippyInstance.destroy();
-  tippy(tooltip.value.parentNode, {
+  tippyInstance = tippy(tooltip.value.parentNode, {
     ...inject(tooltipOptionsInject),
     content: props.text,
     ...props.options,

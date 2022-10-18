@@ -1,7 +1,10 @@
-import type { HideAll, Props } from "tippy.js";
+import type { HideAll, Instance, Props } from "tippy.js";
 import type ToolTip from "./ToolTip.vue";
 
 export type PluginOptions = Partial<Props>;
+
+export type TooltipInstance = Instance;
+
 export * from "./index";
 
 declare module "vue" {
