@@ -5,8 +5,9 @@ const tooltipText = ref("Hello world");
 </script>
 
 <template>
-  <h1>Custom Vue.js 3 Plugins</h1>
+  <h1>Tooltipper Vue.js 3 Plugin</h1>
   <input type="text" v-model="tooltipText" />
+  <br />
   <br />
   <span
     >Hover Over Me
@@ -17,5 +18,4 @@ const tooltipText = ref("Hello world");
   <span v-tooltip="tooltipText">Tooltip with Vue Directive</span>
   <br />
   <br />
-  <button @click="$hideAllTooltips()">Hide All</button>
 </template>

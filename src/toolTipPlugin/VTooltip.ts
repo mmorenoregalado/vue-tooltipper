@@ -1,15 +1,19 @@
 import type { Directive, DirectiveBinding } from "vue";
-import { destroyTooltipInstance, initTooltip } from "./TooltipInstance";
+import Tooltipper from "./TooltipperInstance";
+
+let tooltipInstance: Tooltipper | null = null;
 
 const VTooltip: Directive = {
-  mounted(el: HTMLElement, binding: DirectiveBinding) {
-    initTooltip(el, binding.value);
+  mounted(el, binding: DirectiveBinding) {
+    if (tooltipInstance) tooltipInstance.destroyTooltip();
+    tooltipInstance = new Tooltipper(el, binding.value);
   },
-  updated(el: HTMLElement, binding: DirectiveBinding) {
-    initTooltip(el, binding.value);
+  updated(el, binding: DirectiveBinding) {
+    if (tooltipInstance) tooltipInstance.destroyTooltip();
+    tooltipInstance = new Tooltipper(el, binding.value);
   },
   unmounted() {
-    destroyTooltipInstance();
+    tooltipInstance?.destroyTooltip();
   },
 };
 

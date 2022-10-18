@@ -5,6 +5,12 @@ export type PluginOptions = Partial<Props>;
 
 export type TooltipInstance = Instance;
 
+export interface TooltipperInstance {
+  tippyInstance: TooltipInstance | null;
+
+  destroyTooltip(): void;
+}
+
 export * from "./index";
 
 declare module "vue" {
