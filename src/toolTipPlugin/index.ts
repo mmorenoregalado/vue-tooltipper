@@ -1,15 +1,16 @@
+import type { App } from "vue";
 import { defineAsyncComponent } from "vue";
 import { defu } from "defu";
 import { hideAll } from "tippy.js";
-import type { App } from "vue";
-import type { PluginOptions } from "./types";
+import type { TooltipperOptions } from "./types";
+import VTooltip from "./VTooltip";
 
 export const tooltipOptionsInject = Symbol();
 
-export function createTooltipPlugin(options: PluginOptions = {}) {
+export function createTooltipPlugin(options: TooltipperOptions = {}) {
   return (app: App) => {
     options = defu(options, {
-      arrow: false,
+      arrow: true,
     });
 
     app.config.globalProperties.$hideAllTooltips = hideAll;
@@ -19,5 +20,7 @@ export function createTooltipPlugin(options: PluginOptions = {}) {
       "ToolTip",
       defineAsyncComponent(() => import("./ToolTip.vue"))
     );
+
+    app.directive("tooltip", VTooltip);
   };
 }

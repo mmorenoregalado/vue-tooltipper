@@ -2,11 +2,11 @@
   <span ref="tooltip"></span>
 </template>
 
-<script setup>
-import tippy from "tippy.js";
-import "tippy.js/dist/tippy.css";
+<script setup lang="ts">
 import { onMounted, onUpdated, ref, onUnmounted, inject } from "vue";
-import {tooltipOptionsInject} from "./";
+import { tooltipOptionsInject } from "./";
+import Tooltipper from "./TooltipperInstance";
+import type { TooltipperOptions } from "./types";
 
 const props = defineProps({
   text: { type: String, required: true },
@@ -18,21 +18,27 @@ const props = defineProps({
   },
 });
 
-const tooltip = ref(null);
-let tippyInstance = null;
+const tooltip = ref<Element | null>(null);
 
-function initTippy() {
-  if (tippyInstance) tippyInstance.destroy();
-  tippy(tooltip.value.parentNode, {
-    ...inject(tooltipOptionsInject),
-    content: props.text,
-    ...props.options,
-  });
+const tooltipOptions: TooltipperOptions = {
+  ...inject(tooltipOptionsInject),
+  ...props.options,
+};
+
+let tooltipInstance: Tooltipper | null = null;
+
+function initTooltip() {
+  if (tooltipInstance) tooltipInstance.destroyTooltip();
+  tooltipInstance = new Tooltipper(
+    tooltip?.value?.parentNode as Element,
+    props.text,
+    tooltipOptions
+  );
 }
 
-onMounted(initTippy);
-onUpdated(initTippy);
-onUnmounted(() => tippyInstance.destroy());
+onMounted(() => initTooltip());
+onUpdated(() => initTooltip());
+onUnmounted(() => tooltipInstance?.destroyTooltip());
 </script>
 
 <style scoped></style>
