@@ -50,3 +50,37 @@ register it, and the way to do it is as follows.
 ```
 
 You can pass the text to be displayed by the ToolTip component with the ```text``` property
+
+## Vue Directive
+
+The vue-tooltipper directive makes it even easier to create amazing tooltips for your applications, as well as adding
+v-tooltip and assigning it the content to display.
+
+```html
+<p v-tooltip="'Edit the component'">
+    Edit
+    <code>components/HelloWorld.vue</code> to test HMR
+</p>
+```
+
+You can also add the options you need in the following way.
+Posiblemente
+
+```typescript
+import type {TooltipperOptions} from 'vue-tooltipper'
+
+const options: TooltipperOptions = {
+    placement: 'right-end',
+    trigger: 'click'
+}
+```
+
+And in the directive send them as an argument
+
+```html
+<p v-tooltip:[options]="'Edit the component'">
+    Edit
+    <code>components/HelloWorld.vue</code> to test HMR
+</p>
+```
+

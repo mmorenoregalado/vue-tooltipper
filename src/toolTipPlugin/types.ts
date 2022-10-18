@@ -1,7 +1,7 @@
 import type { HideAll, Instance, Props } from "tippy.js";
 import type ToolTip from "./ToolTip.vue";
 
-export type PluginOptions = Partial<Props>;
+export type TooltipperOptions = Partial<Props>;
 
 export type TooltipInstance = Instance;
 

@@ -6,7 +6,7 @@
 import { onMounted, onUpdated, ref, onUnmounted, inject } from "vue";
 import { tooltipOptionsInject } from "./";
 import Tooltipper from "./TooltipperInstance";
-import type { PluginOptions } from "./types";
+import type { TooltipperOptions } from "./types";
 
 const props = defineProps({
   text: { type: String, required: true },
@@ -20,7 +20,7 @@ const props = defineProps({
 
 const tooltip = ref<Element | null>(null);
 
-const tooltipOptions: PluginOptions = {
+const tooltipOptions: TooltipperOptions = {
   ...inject(tooltipOptionsInject),
   ...props.options,
 };
